@@ -9,13 +9,16 @@ N개의 숫자가 공백 없이 쓰여있다. 이 숫자를 모두 합해서 출
 첫째 줄에 숫자의 개수 N (1 ≤ N ≤ 100)이 주어진다. 둘째 줄에 숫자 N개가 공백없이 주어진다.
 
 """
+# 첫번째 풀이
+# n = int(input())
+# m = input()
+#
+# sum = 0
+#
+# for i in range(n):
+#     sum += int(m[i])
+#
+# print(sum)
 
-n = int(input())
-m = input()
-
-sum = 0
-
-for i in range(n):
-    sum += int(m[i])
-
-print(sum)
+input()
+print(sum(map(int, input())))
