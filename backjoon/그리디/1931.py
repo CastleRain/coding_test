@@ -24,8 +24,6 @@
 이 개념이 들어간다. 
 sorted(a, key=lambda x:x[1])
 """
-
-
 n = int(input())
 
 data = []
@@ -33,9 +31,13 @@ result = []
 start = -1
 for _ in range(n):
     data.append(list(map(int, input().split())))
+### -> 여기서 틀렸었다.
 
-sort_data = sorted(data, key=lambda x: x[1])
+###sort_data = sorted(data, key=lambda x: x[1])
 
+## 이대로 정렬이 되면 시작시간은 고려가 안되는데 끝나는 시간이 같다면 시작시간이 빠른 순서대로 진행을 하면 좋다.
+sort_data = sorted(data, key=lambda x: x[0])
+sort_data = sorted(sort_data, key=lambda x: x[1])
 # 첫번째 값은 바로 넣는다.
 # 다음값부터는 끝난시간과 시작시간이 일치한 혹은 그 이후에 처음 나타나는것을 넣는다.
 for i in range(n):
@@ -44,6 +46,30 @@ for i in range(n):
         start = sort_data[i][1]
 
 print(len(result))
+
+
+
+# 반쯤 맞고 틀림
+# n = int(input())
+#
+# data = []
+# result = []
+# start = -1
+# for _ in range(n):
+#     data.append(list(map(int, input().split())))
+#
+# sort_data = sorted(data, key=lambda x: x[1])
+#
+# # 첫번째 값은 바로 넣는다.
+# # 다음값부터는 끝난시간과 시작시간이 일치한 혹은 그 이후에 처음 나타나는것을 넣는다.
+# for i in range(n):
+#     if start <= sort_data[i][0]:
+#         result.append(sort_data[i])
+#         start = sort_data[i][1]
+#
+# print(len(result))
+
+
 
 
 
