@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 """
 단어 공부
 
@@ -18,12 +20,37 @@
 4. ord를 이용해서 대문자로 간다
 
 a = 97 A = 65
-
-"""
 max_len = ord('z') - ord('A') + 1
 data = [0] * max_len
 
-n = input()
+-> collections 이용해보는 첫 시간을 가져보자.
 
-for _ in n:
-    
+"""
+
+dic = defaultdict(int)
+count = 0
+
+
+word = input().upper()
+
+for w in word:
+    dic[w] += 1
+
+sort_dic = sorted(dic.items(), key = lambda x: x[1], reverse = True)
+
+# 정의된게 2개이상일 때 비교를 통해 ? 를할지 정답을 알려줄지 알려준다.
+
+if len(sort_dic) >= 2:
+    if sort_dic[0][1] == sort_dic[1][1]:
+        print("?")
+    else:
+        print(sort_dic[0][0])
+else:
+    print(sort_dic[0][0])
+
+
+
+
+
+
+
