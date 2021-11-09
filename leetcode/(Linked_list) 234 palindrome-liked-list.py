@@ -61,20 +61,27 @@ ListNode는 다음과 같이 정의가 되어져있는상태이다.
 #
 #         return True
 
-#방법 3
-class Solution:
-    def isPalindrome(self, head: Optional[ListNode]) -> bool:
-        rev = None
-        slow = fast = head
+# #방법 3
+# class Solution:
+#     def isPalindrome(self, head: Optional[ListNode]) -> bool:
+#         rev = None
+#         slow = fast = head
+#
+#         while fast and fast.next:
+#             fast = fast.next.next
+#             rev, rev.next, slow = slow, rev, slow.next
+#
+#         if fast:
+#             slow = slow.next
+#
+#         while rev and rev.val == slow.val:
+#             slow, rev = slow.next, rev.next
+#
+#         return not rev
 
-        while fast and fast.next:
-            fast = fast.next.next
-            rev, rev.next, slow = slow, rev, slow.next
+a = []
+a.append(1)
+a.append(2)
+print(a)
 
-        if fast:
-            slow = slow.next
-
-        while rev and rev.val == slow.val:
-            slow, rev = slow.next, rev.next
-
-        return not rev
+print(a)
