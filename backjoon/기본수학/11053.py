@@ -56,23 +56,33 @@ for i in range(n):
     dp[i][i] = 1
 
 
+"""
+## 5,5 -> 4,5 -> 4,4 -> 3,5 -> 3,4 -> 3,3
+for a in range(n-1, -1, -1):
+    for b in range(n-1, a-1, -1):
+        print(f"{a},{b}")
+
+"""
+max_result = 0
 for i in range(n-1, -1, -1):
 
-
-
-    for j in range(i-1, -1, -1):
+    for j in range(n-1, i-1, -1):
 
         max_num = 0
 
-        if data[i] > data[j]:
+        if data[i] < data[j]:
 
-            max_num += dp[i][i]+1
+            max_num += dp[j][j]+1
 
-            dp[j][i] = max_num
+            dp[i][j] = max_num
 
 
     dp[i][i] = max(dp[i])
-print(dp)
+    max_result = max(max_result, max(dp[i]))
+
+
+print(max_result)
+
 # 2번째 풀이
 # dp = [[0] * n for _ in range(n)]
 # dp2 = [[0] * n for _ in range(n)]
