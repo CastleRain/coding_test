@@ -1,11 +1,37 @@
-n = 6
+data = [13, 15, 14,  17, 18, 16, 16]
+d = 2
+k = 1
 
-## 5,5 -> 4,5 -> 4,4 -> 3,5 -> 3,4 -> 3,3
+answer = []
 
-for a in range(n-1, -1, -1):
+del_count = 0
+pre_data = 0
+
+for i, da in enumerate(data):
+
+    if i == 0 :
+        answer.append(da)
+        continue
+
+    if pre_data == 0:
+        pre_data = da
+    else:
+        if del_count > k:
+            answer.append(pre_data)
+            pre_data = da
+            del_count = 0
+
+        else:
+            if abs(pre_data - da) <= d:
+                del_count += 1
+                pre_data = da
+            else:
+                del_count = 0
+                answer.append(pre_data)
+                pre_data = da
+
+    if len(data)- 1 == i:
+        answer.append(da)
+print(answer)
 
 
-    for b in range(n-1, a-1, -1):
-
-
-        print(f"{a},{b}")
