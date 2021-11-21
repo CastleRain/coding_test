@@ -46,9 +46,9 @@ def hanoi(x, start):
     if start == 1:
         print("1 3")
 
-    # 1이 2칸으로 가야하는 경우
-    if start % 2 ==0:
+    # # 1이 2칸으로 가야하는 경우
+    # if start % 2 ==0:
 
 
     # 1이 3칸으로 가야하는 경우
-    else:
+    # else:
