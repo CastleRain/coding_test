@@ -19,5 +19,5 @@ for _ in range(n):
     data.append(list(map(int, input().split())))
 
 
-def paper(x1, y1, x2, y2):
-    
+# def paper(x1, y1, x2, y2):
+#
