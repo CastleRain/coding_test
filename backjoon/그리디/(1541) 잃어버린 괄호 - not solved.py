@@ -24,32 +24,77 @@ https://www.acmicpc.net/problem/1541
 하다보니 후위표기법이 더 쉬운것같아 후위표기법 만들고 다시돌아온다.
 연산이 + -만있으므로 괄호의 의미가 필요없이 전부 뒤로 보내면된다.
 
- 
+후위표기법 작성하고 까먹고 늦게왔다 ㅋㅋㅋ..
+
+-가 많이 있다면 어디에 괄호를 칠것인지는 괄호가 무제한이네
+
+그럼 그냥 - 나온 위치 뒤에는 다 뺴는값이잖아? 뭐야 이게
+
+그냥 숫자랑 문자를 잘 빼낼수 있는가 문제네
 """
+
+import sys
+
+input = sys.stdin.readline
 
 data = input()
 
-oper = ["+", "-"]
+plus_result = 0
+minus_result = 0
 
-num = []
+minus_flag = False
+
 number = []
-op = []
 for i in data:
-
-    if i in oper:
-       op.append(i)
-       # 현재까지 만들어진 number를 int로 변환하여 number에 저장
-       number.append(int("".join(num)))
-       num = []
-    # 숫자인경우 nubmer에 추가.
+    
+    if i.isdigit():
+        number.append(i)
     else:
-        num.append(i)
 
-# 마지막 숫자값 저장
-number.append(int("".join(num)))
+        
+        if minus_flag:
+            minus_result += int("".join(number))
+            number = []
+        else:
+            plus_result += int("".join(number))
+            number = []
+        if i == "-":
+            minus_flag = True
 
-print(number)
-# for _ in range(len(op)):
-#     number.append(op.pop())
-#
+print(plus_result - minus_result)
+
+            
+
+
+
+
+
+
+
+
+# data = input()
+
+# oper = ["+", "-"]
+
+# num = []
+# number = []
+# op = []
+# for i in data:
+
+#     if i in oper:
+#        op.append(i)
+#        # 현재까지 만들어진 number를 int로 변환하여 number에 저장
+#        number.append(int("".join(num)))
+#        num = []
+#     # 숫자인경우 nubmer에 추가.
+#     else:
+#         num.append(i)
+
+# # 마지막 숫자값 저장
+# number.append(int("".join(num)))
+
 # print(number)
+# # for _ in range(len(op)):
+# #     number.append(op.pop())
+# #
+# # print(number)
