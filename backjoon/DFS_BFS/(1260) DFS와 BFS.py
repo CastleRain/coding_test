@@ -10,7 +10,7 @@ input = sys.stdin.readline
 
 n, m, v = map(int, input().split())
 
-graph = [[] for i in range(m+1)]
+graph = [[] for i in range(n+1)]
 dfs_visited = [False] * (n + 1)
 bfs_visited = [False] * (n + 1)
 
@@ -18,6 +18,11 @@ bfs_visited = [False] * (n + 1)
 for _ in range(m):
     a, b = map(int, input().split())
     graph[a].append(b)
+    graph[b].append(a)
+    
+
+for k in range(len(graph)):
+    graph[k].sort()
 
 def dfs(graph, v, visited):
     
@@ -44,7 +49,7 @@ while len(queue):
 
         bfs_visited[q] = True
 
-        for k in graph[v]:
+        for k in graph[q]:
             if not bfs_visited[k]:
                 queue.append(k)
     
