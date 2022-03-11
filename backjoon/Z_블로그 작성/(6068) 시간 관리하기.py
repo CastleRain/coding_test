@@ -1,5 +1,10 @@
 """
-https://www.acmicpc.net/problem/6068
+문제 링크 : https://www.acmicpc.net/problem/6068
+푼 날짜 : 220310
+문제 유형 : 시뮬레이션
+
+
+풀이 : 
 
 N개의 해야 할 일에 숫자
 

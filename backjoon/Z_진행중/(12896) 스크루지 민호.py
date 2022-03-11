@@ -36,22 +36,14 @@ d[b].append(a)
 
 """
 
-n = int(input())
+import sys
 
-data  = [0 for i in range(n+1)]
-graph = [[] for i in range(n+1)]
-for _ in range(n-1):
-
-    a, b = map(int, input().split())
-    graph[a].append(b)
-    graph[b].append(a)
-
-    data[a] += 1
-    data[b] += 1
-
-data_visited = [False for i in range(n+1)]
-
-max_data = max(data)
-data.index(max_data)
+input = sys.stdin.readline
 
 
+def solution():
+    return 0
+
+if __name__ == "__main__":
+
+    solution()
