@@ -9,8 +9,6 @@ import sys
 input = sys.stdin.readline
 
 
-
-
 while True:
 
     n, m = map(int, input().split())
@@ -20,13 +18,12 @@ while True:
         break
 
     if n > m:
-        if n%m ==0:
+        if n % m == 0:
             print("multiple")
         else:
             print("neither")
     else:
-        if m%n == 0:
+        if m % n == 0:
             print("factor")
         else:
             print("neither")
-
