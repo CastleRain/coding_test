@@ -1,22 +1,57 @@
 """
-https://www.acmicpc.net/problem/10989
+문제 링크 : https://www.acmicpc.net/problem/10989
+푼 날짜 : 220313
+문제 유형 : 정렬
+
+
+풀이 : 
+heapq => 메모리 초과
+dict => 시간 초과 -> sys.stdin.readline추가하니까 성공..
 
 """
-from collections import defaultdict
+
+
+
 import sys
+from collections import defaultdict
 input = sys.stdin.readline
-n = int(input())
 
-num_dic = defaultdict(int)
+def solution(n):
 
-for _ in range(n):
-    num = int(input())
-    num_dic[str(num)] += 1
+    data = defaultdict(int)
+    for _ in range(n):
+        data[int(input())] += 1
+
+    for i in sorted(data.keys()):
+        for j in range(data[i]):
+            print(i)
+    # for _ in range(n):
+    #     print(heapq.heappop(data))
+    return 0
+
+if __name__ == "__main__":
+    n = int(input())
+    solution(n)
 
 
-# num_dic_sort = sorted(num_dic, key = lambda x : x[0])
 
 
-for i in sorted(list(num_dic.keys())):
-    for _ in range(num_dic[str(i)]):
-        print(int(i))
+
+# 메모리 초과
+# import sys
+# import heapq
+
+
+# def solution(n):
+
+#     data = []
+#     for _ in range(n):
+#         heapq.heappush(data, int(input()))
+
+#     for _ in range(n):
+#         print(heapq.heappop(data))
+#     return 0
+
+# if __name__ == "__main__":
+#     n = int(input())
+#     solution(n)
